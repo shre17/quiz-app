@@ -1,6 +1,6 @@
 <div class="row mt-5" id="previewQuestion">
   <div class="col-md-7">
-    <%= form_for :user_response, url: :collect_user_response_tests, method: :post do |f| %>
+    <%= form_for :user_response, url: :collect_user_response_tests, html: {id: "preview-form"}, method: :post do |f| %>
       <div class="card">
         <div class="card-header">
           <h5 class="card-title text-center"><%= @test.name %></h5>
