@@ -52,23 +52,3 @@
     content: counter(my-sec-counter);
   }
 </style>
-
-<script type="text/javascript">
-  //This function calls the "execute" controller action, using its route and also
-//passes a "selectingCommand" variable to it
-var callExecuter=function(){
-  $.ajax({
-    type:'POST',
-    url:'/tests/collect_user_response',
-    data: { selectingCommand : document.getElementById("CommandSelect"); 
-          },
-    success:function(){
-      //I assume you want to do something on controller action execution success?
-      $(this).addClass('done');
-    }
-  });
-}
-
-$(document).on("click","#executer-button",callExecuter);
-
-</script>

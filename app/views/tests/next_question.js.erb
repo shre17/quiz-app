@@ -1,4 +1,27 @@
-$('#previewQuestion').hide().after('<%= escape_javascript(render(partial: "next_question")) %>');
+// $("#next-btn").on("click", function(){
+//   $.ajax({
+//     url: "/tests/collect_user_response",
+//     context: document.body
+//   }).done(
+//     function() {
+//         $( this ).addClass( "done" );
+//     }
+//   );
+// });
+
+// $('#previewQuestion').hide().after('<%= escape_javascript(render(partial: "next_question")) %>');
+
+
+if ($(document).find('#previewQuestion:visible')){
+  $('#previewQuestion').replaceWith('<%= escape_javascript(render(partial: "next_question"))%>')
+}
+if ($(document).find('#nextQuestion:visible')){
+  $('#nextQuestion').replaceWith('<%= escape_javascript(render(partial: "next_question"))%>')
+}
+if ($(document).find('#previousQuestion:visible')) {
+  $('#previousQuestion').replaceWith('<%= escape_javascript(render(partial: "next_question"))%>')
+}
+
 
 // $(function() {
 //     $('#previewQuestion input[type=submit]').remove();

@@ -1,1 +1,9 @@
-$('#nextQuestion').hide().after('<%= escape_javascript(render(partial: "previous_question")) %>');
+if ($(document).find('#previewQuestion:visible')){
+  $('#previewQuestion').replaceWith('<%= escape_javascript(render(partial: "previous_question"))%>')
+}
+if ($(document).find('#nextQuestion:visible')){
+  $('#nextQuestion').replaceWith('<%= escape_javascript(render(partial: "previous_question"))%>')
+}
+if ($(document).find('#previousQuestion:visible')) {
+  $('#previousQuestion').replaceWith('<%= escape_javascript(render(partial: "previous_question"))%>')
+}
