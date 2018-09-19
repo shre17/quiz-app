@@ -1,0 +1,24 @@
+<div class="row mt-3 mb-3">
+  <div class="col-md-10 offset-1">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Form Name</th>
+          <th>Submitted By</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @submissions.each do |submission| %>
+          <tr>
+            <% if submission.test.present? %>
+              <td><%= submission.test.name %></td>
+            <% end %>
+            <td><%= submission.user.email %></td>
+            <td><%= link_to "View Response", submission, class: "btn btn-info" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

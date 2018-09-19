@@ -1,0 +1,48 @@
+<div class="row mt-5" id="previewQuestion">
+  <div class="col-md-7">
+    <%= form_for :user_response, url: :collect_user_response_tests, method: :post do |f| %>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title text-center"><%= @test.name %></h5>
+        </div>
+        <div class="card-body">
+          <ul>
+            <% if params[:submission_id].present? %>
+              <%= f.hidden_field :submission_id, value: params[:submission_id]%>
+            <% end %>
+            <%= f.hidden_field :test_id, value: @test.id %>
+            <% if user_signed_in? %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+            <% end %>
+            <li class="preview-list"><label class="ques-font"><%= @test_questions.first.question %></li></label>
+            <% @test_questions.first.choices.each do |choice| %>
+              <div class="form-group">
+                <%= f.radio_button @test_questions.first.question, choice.name %>
+                <%= f.label choice.name %>
+              </div>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-3 mb-3">
+        <%= link_to "Previous", previous_path(id: @test.id, question_id: @test.questions.first.id), remote: true, class: "btn btn-primary disabled" if @test.questions.first %>
+        <%= link_to "Next", next_path(id: @test.id, question_id: @test.questions.first.id), remote: true, class: "btn btn-primary float-right" %>
+      </div>
+    <% end %>
+  </div>
+  <%= render 'status'%>
+</div>
+
+<style type="text/css">
+  label {
+    display: inline-table;
+  }
+  .card-body {
+    counter-reset: my-sec-counter;
+  }
+  .table-td::before {
+    /* Increment "my-sec-counter" by 1 */
+    counter-increment: my-sec-counter;
+    content: counter(my-sec-counter);
+  }
+</style>

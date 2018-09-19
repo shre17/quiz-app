@@ -1,0 +1,27 @@
+<div class="controller">
+  <div class="row">
+    <div class="col-md-10 offset-1">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Form Name</th>
+            <th>Submitted By</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @submissions.each do |submission| %>
+            <tr>
+              <td><%= submission.test.name %></td>
+              <td><%= submission.user.email %></td>
+              <td><%= link_to "View Response", submission, class: "btn btn-info" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to "Back", test_path(@test), class: "btn btn-secondary" %>
+      <%#= link_to "Download Response in CSV", submissions_basic_form_path(@basic_form, format: 'csv'), class: "btn btn-secondary" %>
+      <%#= link_to "Download Response in Excel", basic_form_path(@basic_form), class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>

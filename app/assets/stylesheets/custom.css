@@ -1,0 +1,56 @@
+.rule-1 {
+  border: 1px solid #afa7af;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  background-color: #dedcdd;
+}
+.rule-2 {
+  border: 1px solid #afa7af;
+  padding: 5px 10px 5px 10px;
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
+  background-color: #ee5402;
+}
+.rule-3 {
+  border: 1px solid #afa7af;
+  padding: 5px 10px 5px 10px;
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
+  background-color: #589d26; 
+}
+.rule-4 {
+  border: 1px solid #afa7af;
+  padding: 5px 10px 5px 10px;
+  background-color: #7c61a0; 
+  border-radius: 15px;
+}
+.rule-5 {
+  border: 1px solid #afa7af;
+  padding: 5px 10px 5px 10px;
+  background-color: #7c61a0; 
+  border-radius: 15px;
+}
+.rule-5:after{
+  font-family: FontAwesome;
+  content: '\f111';
+  font-size: 10px;
+  color: #a7bc81;
+  position: absolute;
+  margin-top: 2.5%;
+  margin-left: -0.5%;
+}
+.rule-6:after{
+  font-family: FontAwesome;
+  content: '\f00c';
+  font-size: 12px;
+  color: #a7bc81;
+  position: absolute;
+  margin-top: 2.5%;
+  margin-left: -0.5%;
+}
+.preview-list {
+  font-size: 25px;
+}
+.ques-font {
+  font-size: 20px;
+}

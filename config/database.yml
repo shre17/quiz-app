@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: quiz_app_development
+  pool: 5
+  username: postgres
+  password: 123456
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: quiz_app_test
+  pool: 5
+  username: postgres
+  password: 123456
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: quiz_app_production
+  pool: 5
+  username: postgres
+  password: 123456
+  host: localhost

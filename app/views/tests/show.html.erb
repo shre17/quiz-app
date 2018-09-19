@@ -1,0 +1,24 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <p>
+    <strong>Test Name:</strong>
+    <%= @test.name %>
+  </p>
+  <p>
+    <strong>Test Questions:</strong>
+    <ol type="1">
+      <% @test.questions.each do |question| %>
+        <li><%= question.question %><br></li>
+        <ol type="a">
+          <% question.choices.each do |choice| %>
+             <li><%= choice.name %><br></li>
+          <% end %>
+        </ol>
+      <% end %>
+    </ol>
+  </p>
+
+  <%= link_to 'Edit', edit_test_path(@test) %> |
+  <%= link_to 'Back', tests_path %>|
+  <%= link_to 'Preview', preview_test_test_path %>
+</div>

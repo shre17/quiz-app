@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <div class="nested-fields border">
+    <div class="row">
+      <div class="col-md-10 offset-1">
+        <div class="form-group mt-3">
+          <%= f.label :question %>
+          <%= f.text_field :question, class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <%= f.label :correct_answer %>
+          <%= f.text_field :correct_answer, class: "form-control"%>
+        </div>
+        <%= link_to_remove_association "Remove Question", f , class: "btn btn-danger mb-3 float-right" %>
+
+        <div id="tasks">
+          <%= f.fields_for :choices do |choice| %>
+            <%= render 'choice_fields', f: choice %>
+          <% end %>
+          <div class="links">
+            <%= link_to_add_association 'Add Choice', f, :choices, class: "btn btn-outline-primary"  %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

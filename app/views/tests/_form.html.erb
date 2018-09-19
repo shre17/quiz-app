@@ -1,0 +1,34 @@
+<div class="container">
+  <%= form_with(model: test, local: true) do |f| %>
+    <% if test.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(test.errors.count, "error") %> prohibited this test from being saved:</h2>
+
+        <ul>
+        <% test.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, id: :test_name, class: "form-control" %>
+    </div>
+
+    <div id="questions">
+      <%= f.fields_for :questions do |question| %>
+        <%= render 'question_fields', f: question %>
+      <% end %>
+      <div class="links mt-3">
+        <%= link_to_add_association 'Add Question', f, :questions, class: "btn btn-info" %>
+      </div>
+    </div>
+
+    <div class="actions mt-3 mb-3">
+      <%= link_to 'Back', tests_path,  class: "btn btn-outline-dark" %>
+      <%= f.submit class: "btn btn-outline-success float-right" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,8 @@
+$('#previewQuestion').hide().after('<%= escape_javascript(render(partial: "next_question")) %>');
+
+// $(function() {
+//     $('#previewQuestion input[type=submit]').remove();
+//     $('#previewQuestion input[type=radio]').click(function() {
+//         $(this).parent('form').submit();
+//     });
+// });

@@ -1,0 +1,28 @@
+<div class="col-md-5">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title text-center">Status</h5>
+    </div>
+    <div class="card-body">
+      <div>
+        <span class="rule-1">1</span> Not Visited
+        <span class="rule-2 text-white">2</span> Answered<br>
+      </div>
+      <div class="mt-3">
+        <span class="rule-3 text-white">3</span> Not Answered
+        <span class="rule-4 text-white">4</span> Marked For Review<br>
+      </div>
+      <div class="mt-3">
+        <span class="rule-5 text-white">5</span> Answered and Marked For Review (will be consider for evalution)
+        <!-- <span class="rule-5 rule-6 text-white">6</span> -->
+      </div>
+    </div>
+    <hr>
+    <div class="card-body text-center">
+      <% @test.questions.count.times do |f| %>
+        <% f = f+1 %>
+        <span class="ml-3 text-center btn btn-warning"><%= link_to f, question_path(id: @test.id, question_id: f), remote: true %></span>
+      <% end %>
+    </div>
+  </div>
+</div>

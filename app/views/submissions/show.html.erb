@@ -1,0 +1,42 @@
+<div class="row mt-3 mb-3">
+  <div class="col-md-8 offset-2 mt-3">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">
+          <%= @submission.test.name %>
+        </h2>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Submitted By <span class="badge badge-secondary"><%= @submission.user.email %></span></h4>
+          </div>
+          <div class="col-md-6">
+            <h4 class="float-right">Total Score <span class="badge badge-secondary"> <%= @score %> out of <%= @submission.test.questions.count%></span></h4>
+          </div>
+        </div>
+        <hr>
+        <p class="lead">User Response</p>
+        <ul class="list-group">
+          <% @submission.form_values.each do |key, value| %>
+            <% if @submission.form_values[key].class == Array %>
+              <li class="list-group-item">
+                <h5><span><strong>Question:</strong> <%= key.titleize %></span> </h5>
+                <% val_array = @submission.form_values[key].reject {|c| c.empty? }%>
+                <% val_array.each do |val|%>
+                  <h6 style="text-align: justify;"><strong>Answer:</strong> <%= val %></h6>
+                <% end %>
+              </li>
+            <% else %>
+              <li class="list-group-item">
+                <h5><span><strong>Question:</strong> <%= key.titleize %></span> </h5>
+                <h6 style="text-align: justify;"><strong>Answer:</strong> <%= value %></h6>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <%= link_to "Back", submissions_path, class: "btn btn-secondary mt-2" %>
+  </div>
+</div>
