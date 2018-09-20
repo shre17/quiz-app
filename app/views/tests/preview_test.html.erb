@@ -28,10 +28,24 @@
         <%= link_to "Previous", previous_path(id: @test.id, question_id: @test.questions.first.id), remote: true, class: "btn btn-primary disabled" if @test.questions.first %>
         <%= link_to "Next", next_path(id: @test.id, question_id: @test.questions.first.id), remote: true, class: "btn btn-primary float-right" %>
       </div>
+      <div class="row">
+        <%= link_to "Save & Next", "", data: {user_response: '#{params[:user_response]}'} , class: "btn btn-success save-btn", remote: true, id: "saveBtn" %>
+      </div>
     <% end %>
   </div>
   <%= render 'status'%>
 </div>
+
+<script type="text/javascript">
+  $("#saveBtn").on('click', function() {
+    user_response = $(this).data('user_response')
+    $.ajax({
+      url: '/tests/collect_user_response',
+      method: "POST",
+      data: {user_response: user_response}
+    })
+  });
+</script>
 
 <style type="text/css">
   label {

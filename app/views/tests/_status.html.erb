@@ -21,7 +21,7 @@
     <div class="card-body text-center">
       <% @test.questions.count.times do |f| %>
         <% f = f+1 %>
-        <span class="ml-3 text-center btn btn-warning"><%= link_to f, question_path(id: @test.id, question_id: f), remote: true %></span>
+        <span class="ml-3 text-center"><%= link_to f, question_path(id: @test.id, question_id: f), remote: true, class: "btn btn-warning" %></span>
       <% end %>
     </div>
   </div>
